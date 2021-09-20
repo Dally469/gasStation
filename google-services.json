@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1073499076272",
+    "firebase_url": "https://gps-sp-station-detector-default-rtdb.firebaseio.com",
+    "project_id": "gps-sp-station-detector",
+    "storage_bucket": "gps-sp-station-detector.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1073499076272:android:a2ee633b97b7f2e4a72d75",
+        "android_client_info": {
+          "package_name": "com.example.gpsspstationdetector"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1073499076272-8unuqrrrh7gu253qmsn59hdfg3pb0vhg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaY2-Nj1bhD8dBxSnV57YEEtVhhACmgjI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1073499076272-8unuqrrrh7gu253qmsn59hdfg3pb0vhg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

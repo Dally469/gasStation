@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">GPS SP STATION DETECTOR</string>
+    <string name="str_create_account">Create Account</string>
+    <string name="str_names">Names</string>
+    <string name="str_phone">Phone</string>
+    <string name="str_register">Register</string>
+    <string name="str_plz_waiting">Please waiting</string>
+    <string name="str_creating_account">Creating Account</string>
+    <string name="title_activity_home_map">Map</string>
+    <string name="str_fuel_consumption">Fuel consumption</string>
+    <string name="str_fuel_data">Fuel</string>
+    <string name="str_quart">Quart :</string>
+    <string name="str_fuel_requested">Requested Fuel</string>
+    <string name="str_garage_data">Garage</string>
+    <string name="str_delivery_data">Delivery</string>
+    <string name="str_garage">Fuel</string>
+    <string name="str_acc_setting">Account Settings</string>
+    <string name="str_both">Gas Station and Garage </string>
+    <string name="str_single">Gas Station </string>
+    <string name="str_request_service"> Request Services </string>
+    <string name="str_request_garage_service"> Garage Services </string>
+    <string name="str_request_delivery_service"> Fuel Delivery Services </string>
+    <string name="str_request_service_list">Choose service do you want </string>
+    <array name="array_fuel_type">
+        <item>Diesel</item>
+        <item>Gasoline</item>
+        <item>Fuel oil</item>
+    </array>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_station_maps">Map</string>
+    <string name="str_select_who">Select Account</string>
+    <string name="str_select_who_you_are">How do you want to use application</string>
+    <string name="str_driver">Driver</string>
+    <string name="str_creating_station">Register Station</string>
+    <string name="str_has_services">Station has garage service</string>
+    <string name="str_location">Location</string>
+    <string name="str_customer_request"> Customer Request</string>
+    <string name="str_customer_garage_service"> Garage Service Request</string>
+    <string name="str_customer_fuel_service"> Fuel Service Request</string>
+    <string name="str_pending">Pending</string>
+    <string name="str_accepted"> Accepted</string>
+
+</resources>

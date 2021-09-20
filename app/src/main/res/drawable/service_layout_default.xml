@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:tint="#1E414945" xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="13dp"/>
+</shape>
