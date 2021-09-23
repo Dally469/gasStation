@@ -12,6 +12,7 @@ public class Common {
     public static final String PHONE_KEY = "Phone";
     public static final String USER_TYPE_KEY = "UserType";
     public static final String USER_CURRENT_ID = "UserId";
+    public static final String CURRENT_LANG = "en";
 
 
     public static boolean IsNetworkAvailable(Context context){

@@ -3,6 +3,8 @@ package com.example.gpsspstationdetector;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +18,7 @@ public class AccountSetting extends AppCompatActivity {
     private TextView name, phone;
     CollapsingToolbarLayout collapsingToolbarLayout;
     FloatingActionButton fab_assign_fingerprint;
+    LinearLayout lnl_change;
 
 
     @Override
@@ -30,6 +33,7 @@ public class AccountSetting extends AppCompatActivity {
 
         name = findViewById(R.id.user_profile_name);
         phone = findViewById(R.id.user_profile_phone);
+        lnl_change = findViewById(R.id.lnl_change);
 
         Paper.init(this);
         name.setText(Paper.book().read(Common.USERNAME_KEY));
@@ -40,6 +44,13 @@ public class AccountSetting extends AppCompatActivity {
 
         fab_assign_fingerprint.setOnClickListener(view ->{
             Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
+        });
+
+        lnl_change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Paper.book().destroy();
+            }
         });
 
     }

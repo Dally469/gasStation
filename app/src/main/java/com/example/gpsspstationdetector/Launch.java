@@ -17,6 +17,9 @@ public class Launch extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         setContentView(R.layout.activity_launch);
+
+
+
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {

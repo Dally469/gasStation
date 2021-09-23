@@ -172,6 +172,44 @@
                         android:textStyle="normal" />
                 </LinearLayout>
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/overlay"
+                android:layout_margin="10dp"/>
+            <LinearLayout
+                android:id="@+id/lnl_change"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:orientation="horizontal"
+                android:padding="5dp">
+                <ImageView
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:src="@drawable/ic_baseline_public_24"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="top"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_change_app_lang"
+                        android:textColor="@color/purple_500"
+                        android:textSize="19dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_change_lang"
+                        android:textStyle="normal" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

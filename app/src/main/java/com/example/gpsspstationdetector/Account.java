@@ -29,6 +29,7 @@ import io.paperdb.Paper;
 public class Account extends AppCompatActivity {
     private EditText name;
     private EditText phone;
+    private EditText confirm_password, password;
     Button register;
     ProgressDialog progressDialog;
     CheckBox chk_remember;
@@ -53,6 +54,8 @@ public class Account extends AppCompatActivity {
         //initiation id
         name = findViewById(R.id.names);
         phone = findViewById(R.id.phone);
+        password = findViewById(R.id.password);
+        confirm_password = findViewById(R.id.confirm_password);
         register = findViewById(R.id.btn_register);
         progressDialog = new ProgressDialog(this);
         chk_remember = findViewById(R.id.check_me);
@@ -89,6 +92,12 @@ public class Account extends AppCompatActivity {
         }else if (TextUtils.isEmpty(phone.getText().toString())){
             phone.setError("Phone is required");
             phone.requestFocus();
+        }else if (TextUtils.isEmpty(password.getText().toString())){
+            password.setError("Password is required");
+            password.requestFocus();
+        }else if (!password.getText().toString().equals(confirm_password.getText().toString())){
+            confirm_password.setError("Password not match");
+            confirm_password.requestFocus();
         }else{
 
             Paper.book().write(Common.USERNAME_KEY, name.getText().toString().trim());
@@ -98,7 +107,8 @@ public class Account extends AppCompatActivity {
 
             Users artist = new Users(
                     name.getText().toString().trim(),
-                    phone.getText().toString().trim()
+                    phone.getText().toString().trim(),
+                    password.getText().toString().trim()
             );
             referenceTbl.child(id).setValue(artist);
             pDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
@@ -116,7 +126,6 @@ public class Account extends AppCompatActivity {
                     pDialog.dismissWithAnimation();
                 }
             }, 1800);
-            Toast.makeText(this, "Artist added", Toast.LENGTH_LONG).show();
 
         }
 

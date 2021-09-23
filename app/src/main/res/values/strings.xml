@@ -39,5 +39,15 @@
     <string name="str_customer_fuel_service"> Fuel Service Request</string>
     <string name="str_pending">Pending</string>
     <string name="str_accepted"> Accepted</string>
+    <string name="str_change_lang"> Change Language</string>
+    <string name="str_lang_eng"> English</string>
+    <string name="str_lang_fre"> French </string>
+    <string name="str_lang_kinya"> Kinyarwanda</string>
+    <string name="str_cancel"> Cancel</string>
+    <string name="str_change_app_lang"> Change Application language</string>
+    <string name="str_lang_changed">  Application language changed successful</string>
+    <string name="str_if_have_account"> If you already have account, CLICK LOGIN</string>
+    <string name="str_password">Password</string>
+    <string name="str_confirm_password">Confirm Password</string>
 
 </resources>
