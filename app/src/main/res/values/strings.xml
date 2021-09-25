@@ -8,6 +8,7 @@
     <string name="str_creating_account">Creating Account</string>
     <string name="title_activity_home_map">Map</string>
     <string name="str_fuel_consumption">Fuel consumption</string>
+    <string name="str_my_request">My Request</string>
     <string name="str_fuel_data">Fuel</string>
     <string name="str_quart">Quart :</string>
     <string name="str_fuel_requested">Requested Fuel</string>

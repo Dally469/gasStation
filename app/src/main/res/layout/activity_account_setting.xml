@@ -153,15 +153,17 @@
                     android:layout_margin="5dp"
                     android:layout_gravity="top"/>
                 <LinearLayout
+                    android:id="@+id/my_request"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
+                    android:clickable="true"
                     android:layout_weight="1"
                     android:orientation="vertical">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/str_fuel_consumption"
+                        android:text="@string/str_my_request"
                         android:textColor="@color/purple_500"
                         android:textSize="19dp"
                         android:textStyle="bold" />

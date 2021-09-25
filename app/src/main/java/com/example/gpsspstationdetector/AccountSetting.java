@@ -2,6 +2,7 @@ package com.example.gpsspstationdetector;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -18,7 +19,7 @@ public class AccountSetting extends AppCompatActivity {
     private TextView name, phone;
     CollapsingToolbarLayout collapsingToolbarLayout;
     FloatingActionButton fab_assign_fingerprint;
-    LinearLayout lnl_change;
+    LinearLayout lnl_change,lnl_request;
 
 
     @Override
@@ -34,6 +35,7 @@ public class AccountSetting extends AppCompatActivity {
         name = findViewById(R.id.user_profile_name);
         phone = findViewById(R.id.user_profile_phone);
         lnl_change = findViewById(R.id.lnl_change);
+        lnl_request = findViewById(R.id.my_request);
 
         Paper.init(this);
         name.setText(Paper.book().read(Common.USERNAME_KEY));
@@ -44,12 +46,23 @@ public class AccountSetting extends AppCompatActivity {
 
         fab_assign_fingerprint.setOnClickListener(view ->{
             Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
+            Paper.book().destroy();
+            Intent intent = new Intent(getApplicationContext(), Account.class);
+            startActivity(intent);
         });
 
         lnl_change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Paper.book().destroy();
+            }
+        });
+
+        lnl_request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MyRequest.class);
+                startActivity(intent);
             }
         });
 

@@ -82,6 +82,8 @@ public class StationMapsActivity extends FragmentActivity implements OnMapReadyC
                                         startActivity(new Intent(getApplicationContext(),DashboardStation.class));
                                         sDialog.dismissWithAnimation();
 
+
+
                                     }
                                 }, 2000);
                             }
