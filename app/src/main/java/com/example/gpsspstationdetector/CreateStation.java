@@ -34,7 +34,7 @@ public class CreateStation extends AppCompatActivity {
     private EditText editTextLat;
     private boolean hasServices;
     SweetAlertDialog pDialog;
-    Button register;
+    Button register,btnGetCoordinate;
     ProgressDialog progressDialog;
     CheckBox chk_remember;
     private FirebaseDatabase database;
@@ -59,6 +59,7 @@ public class CreateStation extends AppCompatActivity {
         editTextLong = findViewById(R.id.station_longitude);
         progressDialog = new ProgressDialog(this);
         chk_remember = findViewById(R.id.check_has_services);
+        btnGetCoordinate = findViewById(R.id.getMapCoordinate);
 
         if (chk_remember.isChecked()){
             hasServices = true;
@@ -72,7 +73,7 @@ public class CreateStation extends AppCompatActivity {
                 createAccountUser();
             }
         });
-        location.setOnClickListener(new View.OnClickListener() {
+        btnGetCoordinate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent pickPointIntent = new Intent(CreateStation.this, MapsActivity.class);

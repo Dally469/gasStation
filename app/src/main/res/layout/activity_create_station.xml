@@ -67,8 +67,27 @@
                     android:layout_margin="10dp"/>
 
             </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_map"
+                    android:layout_marginRight="20dp"/>
+                <Button
+                    android:id="@+id/getMapCoordinate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_design"
+                    android:text="Click Get Map Coordinate"
+                    android:textAllCaps="false"/>
+            </LinearLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="wrap_content">
                 <EditText
                     android:id="@+id/station_latitude"
@@ -82,6 +101,8 @@
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
+                android:visibility="gone"
+
                 android:layout_height="wrap_content">
                 <EditText
                     android:id="@+id/station_longitude"

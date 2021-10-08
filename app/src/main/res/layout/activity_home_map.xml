@@ -71,6 +71,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingLeft="3dp"
+                        android:inputType="phone"
                         android:text="+250 785 154 521 "
                         android:textColor="@color/teal_700"
                         android:textSize="12dp" />
@@ -186,6 +187,7 @@
                             android:id="@+id/fuel_phone"
                             android:layout_width="match_parent"
                             android:layout_height="55dp"
+                            android:inputType="phone"
                             android:background="@android:color/transparent"
                             android:hint="Phone"/>
                     </com.google.android.material.textfield.TextInputLayout> <com.google.android.material.textfield.TextInputLayout

@@ -37,11 +37,6 @@ public class Account extends AppCompatActivity {
     private DatabaseReference referenceTbl;
     SweetAlertDialog pDialog;
 
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

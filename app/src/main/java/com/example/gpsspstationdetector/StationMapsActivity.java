@@ -1,16 +1,23 @@
 package com.example.gpsspstationdetector;
 
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.telephony.SmsManager;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,7 +41,10 @@ public class StationMapsActivity extends FragmentActivity implements OnMapReadyC
     private Double latitude,longitude;
     private LinearLayout linearLayoutConfirm;
     private SweetAlertDialog sweetAlertDialog;
+    private ImageView call;
+    private static final int PERMISSION_SEND_SMS = 123;
 
+    private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +61,7 @@ public class StationMapsActivity extends FragmentActivity implements OnMapReadyC
         txtphone = findViewById(R.id.txt_phone);
         txtplate_nbr = findViewById(R.id.txt_plate);
         linearLayoutConfirm = findViewById(R.id.confirm_request);
+        call = findViewById(R.id.phone_call);
 
         name = getIntent().getStringExtra("customer");
         phone = getIntent().getStringExtra("phone");
@@ -58,9 +69,18 @@ public class StationMapsActivity extends FragmentActivity implements OnMapReadyC
         latitude = getIntent().getDoubleExtra("latitude",1);
         longitude = getIntent().getDoubleExtra("longitude", 1);
 
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent call = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+                call.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(call);
+            }
+        });
+
         txtname.setText("" + name);
         txtphone.setText("Phone :" + phone);
-        txtphone.setText("CAR Plate Number :" + plate_nbr);
+        txtplate_nbr.setText("CAR Plate Number :" + plate_nbr);
         Toast.makeText(this, latitude+" and "+longitude, Toast.LENGTH_SHORT).show();
 
         linearLayoutConfirm.setOnClickListener(new View.OnClickListener() {
@@ -78,10 +98,9 @@ public class StationMapsActivity extends FragmentActivity implements OnMapReadyC
                                 new Handler().postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Toast.makeText(StationMapsActivity.this, "Accepted SUCCESSFUL", Toast.LENGTH_LONG).show();
                                         startActivity(new Intent(getApplicationContext(),DashboardStation.class));
                                         sDialog.dismissWithAnimation();
-
+                                        requestSmsPermission();
 
 
                                     }
@@ -111,6 +130,23 @@ public class StationMapsActivity extends FragmentActivity implements OnMapReadyC
 
     }
 
+    private void requestSmsPermission() {
+
+        // check permission is given
+        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+            // request permission (see result in onRequestPermissionsResult() method)
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.SEND_SMS},
+                    PERMISSION_SEND_SMS);
+        } else {
+            // permission already granted run sms send
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(phone, null, "GARAGE SERVICE APPROVED \nRequest Approved \nPlease wait we will be there soon", null, null);
+            Toast.makeText(getApplicationContext(), "Approval Message Sent Successful",
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -138,6 +174,27 @@ public class StationMapsActivity extends FragmentActivity implements OnMapReadyC
         mMap.moveCamera(CameraUpdateFactory.newLatLng(coordinate));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(14.0f));
     }
+
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_SEND_SMS: {
+
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // permission was granted
+                    SmsManager smsManager = SmsManager.getDefault();
+                    smsManager.sendTextMessage(phone, null, "GARAGE SERVICE APPROVED \nRequest Approved \nPlease wait we will be there soon", null, null);
+                    Toast.makeText(getApplicationContext(), "Approval Message Sent Successful",
+                            Toast.LENGTH_LONG).show();
+                } else {
+                    // permission denied
+                }
+                return;
+            }
+        }
+    }
+
 
     private BitmapDescriptor mapIcon(Context context, int vectorResId) {
         Drawable vectorDrawable = ContextCompat.getDrawable(context, vectorResId);

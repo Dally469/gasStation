@@ -291,6 +291,9 @@ public class HomeMap extends FragmentActivity implements OnMapReadyCallback {
                 } else if (TextUtils.isEmpty(ed_phone.getText().toString())) {
                     ed_phone.setError("Phone is required");
                     ed_phone.requestFocus();
+                } else if (ed_phone.getText().length() < 10) {
+                    ed_phone.setError("Phone must be 10 number");
+                    ed_phone.requestFocus();
                 } else if (TextUtils.isEmpty(ed_plate_no.getText().toString())) {
                     ed_plate_no.setError("Plate number is required");
                     ed_plate_no.requestFocus();
@@ -343,7 +346,10 @@ public class HomeMap extends FragmentActivity implements OnMapReadyCallback {
                 } else if (TextUtils.isEmpty(edf_phone.getText().toString())) {
                     edf_phone.setError("Phone is required");
                     edf_phone.requestFocus();
-                } else if (TextUtils.isEmpty(edf_plate_no.getText().toString())) {
+                }  else if (ed_phone.getText().length() < 10) {
+                    ed_phone.setError("Phone must be 10 number");
+                    ed_phone.requestFocus();
+                }else if (TextUtils.isEmpty(edf_plate_no.getText().toString())) {
                     edf_plate_no.setError("Plate number is required");
                     edf_plate_no.requestFocus();
                 } else if (TextUtils.isEmpty(edf_liter.getText().toString())) {
@@ -376,7 +382,7 @@ public class HomeMap extends FragmentActivity implements OnMapReadyCallback {
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            garage_option.setVisibility(View.GONE);
+                            fuel_delivery_option.setVisibility(View.GONE);
                             fuelRequestTbl.child(id).setValue(fuelRequest);
                             Toast.makeText(HomeMap.this, "Fuel Service Send SUCCESSFUL", Toast.LENGTH_LONG).show();
                             sweetAlertDialog.dismissWithAnimation();
